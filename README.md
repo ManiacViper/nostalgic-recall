@@ -1,6 +1,6 @@
 # Nostalgic-Recall 🎵
 
-Nostalgic-Recall is an app designed to help you rediscover and enjoy your favorite music from the past. 🎶✨
+Nostalgic-Recall is an app designed to help you rediscover and enjoy your favorite music from the past in your personal Spotify's liked songs. 🎶✨
 
 With Nostalgic-Recall, you can:
 - **Explore**: Discover tracks that you haven’t listened to in a while.
