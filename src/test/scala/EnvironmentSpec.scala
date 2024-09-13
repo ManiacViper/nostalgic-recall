@@ -58,9 +58,6 @@ object EnvironmentSpec {
     System.setProperty(Environment.host, host)
     System.setProperty(Environment.port, port)
 
-    println(s"Host: ${System.getProperty(Environment.host)}")
-    println(s"Port: ${System.getProperty(Environment.port)}")
-
     testFn
   }
 
