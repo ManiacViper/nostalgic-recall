@@ -71,7 +71,6 @@ object SongRoutesSpec {
           .withUri(uri"/login")
           .withEntity(request.asJson)
           .withContentType(`Content-Type`(MediaType.application.json))
-          .withHeaders()
       )
       .map(testFn)
       .unsafeRunSync()
