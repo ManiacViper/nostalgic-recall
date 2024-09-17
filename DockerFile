@@ -1,0 +1,14 @@
+# Use the Amazon Corretto base image with JDK
+FROM amazoncorretto:17-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY target/scala-2.13/myapp.jar /app/myapp.jar
+
+# Expose the port that the application will run on
+EXPOSE 8888
+
+# Define the command to run the application
+CMD ["java", "-Xms1G", "-Xmx2G", "-XX:+UseG1GC", "-XX:MetaspaceSize=128M", "-XX:MaxMetaspaceSize=256M", "-jar", "nostalgic-service.jar"]
