@@ -30,5 +30,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-sbt-
 
-      - name: Test with SBT
+      - name: clean
+        run: sbt clean
+
+      - name: test
         run: sbt test
+
+      - name: assemble
+        run: sbt assembly
