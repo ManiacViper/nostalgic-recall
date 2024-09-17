@@ -7,4 +7,4 @@ source ./env-setup.sh
 JAR_PATH="target/scala-2.13/nostalgic-service.jar"
 
 # Run the application
-java -DHOST=${HOST} -DPORT=${PORT} -jar ${JAR_PATH} com.example.MainClass
+java -DHOST=${HOST} -DPORT=${PORT} -jar ${JAR_PATH}
