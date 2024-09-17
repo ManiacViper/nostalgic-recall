@@ -4,6 +4,8 @@ val CatsVersion = "2.12.0"
 val CatsEffectVersion = "3.5.4"
 val CirceVersion = "0.14.9"
 
+import sbtassembly.AssemblyPlugin.autoImport._
+
 lazy val root = (project in file("."))
   .settings(
     organization := "org",
@@ -24,6 +26,24 @@ lazy val root = (project in file("."))
       "org.scalatest"   %% "scalatest"           % "3.2.19"           % Test
 
     ),
+    javaOptions ++= Seq(
+      "-Xms1G",
+      "-Xmx2G",
+      "-XX:+UseG1GC",
+      "-XX:MetaspaceSize=128M",
+      "-XX:MaxMetaspaceSize=256M"
+    ),
+
+    assembly / test := {},
+    assembly / mainClass := Some("com.nostalgia.Main"),
+    assembly / assemblyJarName := "nostalgic-service.jar",
+
+    assembly / assemblyMergeStrategy := {
+      case PathList("META-INF", _*) => MergeStrategy.discard
+      case PathList("module-info.class") => MergeStrategy.discard
+      case x => MergeStrategy.first
+    },
+
     addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.3" cross CrossVersion.full),
     addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
     testFrameworks += new TestFramework("org.scalatest.tools.Framework"),
